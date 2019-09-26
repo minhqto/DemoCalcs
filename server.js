@@ -1,3 +1,5 @@
+//using express to create server
+
 var express = require('express');
 var path = require('path');
 var HTTP_PORT = process.env.PORT || 8080;
