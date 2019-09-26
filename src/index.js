@@ -209,7 +209,8 @@ function displayTotalTime(fl, bt)
 function clearFlStatement()
 {
     var flSt = document.getElementById("lenFuseStatement");
-    while(flSt.firstChild){
+    if(flSt.firstChild){
+        while(flSt.firstChild   )
         flSt.removeChild(flSt.firstChild);
     }
 
@@ -224,7 +225,6 @@ clearTTStatement = () =>
         while(tSt.firstChild){
             tSt.removeChild(tSt.firstChild)
         }
-        
     }
     return tSt;
 }
@@ -235,8 +235,6 @@ function start()
     singleShotClick();
     multiShotClick();
     
-    
 }
-
 
 window.onload = start();

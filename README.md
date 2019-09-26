@@ -7,4 +7,4 @@ and time fuse needed for an explosive charge.
 
 *Currently using node JS for calcs*
 
-**Current sprint: Remove multiple confirmation messages bug when clicking "Calculate**
+**Current sprint: use express**
