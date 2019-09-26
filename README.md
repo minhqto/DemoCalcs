@@ -7,4 +7,5 @@ and time fuse needed for an explosive charge.
 
 *Currently using node JS for calcs*
 
+Heroku link: https://boiling-oasis-45504.herokuapp.com/
 **Current sprint: use express**
