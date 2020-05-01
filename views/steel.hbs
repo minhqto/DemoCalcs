@@ -1,0 +1,51 @@
+<div class="alert alert-warning">Note: Charge placement, if c >23 cm for bars & 22 cm for cable then use scissor charge max 31.4cm circumference</div>
+
+<a href="/steel/bar"><button type="button" class="btn btn-secondary singleShot {{#isActiveButton "/steel/bar"}}{{/isActiveButton}} ">Steel Bar</button></a>
+<a href="/steel/cable"><button type="button" class="btn btn-secondary multiShot {{#isActiveButton "/steel/cable"}}{{/isActiveButton}}">Steel Cable</button></a>
+<br>
+{{#if error}}
+    <br>
+    <div class="alert alert-danger">
+        {{error}}
+    </div>
+{{/if}}
+<div>
+    {{#if (shotType "/steel/bar")}}
+     <form method="post" action="/steel/bar">
+        <div class="form-group">    
+            <br>
+                <div class="custom-control custom-switch">
+                    <input class="custom-control-input" type="checkbox" name="highSteel" id="highSteel">
+                    <label class="custom-control-label" for="highSteel">High Steel</label>
+                </div>
+                <label for="circumference">Circumference (in cm)</label>
+                <input class="form-control" name="circumference" type="decimal">
+                <br>
+                <input type="submit" class="btn btn-primary" value="Calculate">
+        </div>
+     </form>
+    {{/if}}
+
+    {{#if (shotType "/steel/cable")}}
+    <form method="post" action="/steel/cable">
+        <div class="form-group">
+             <br>
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" name="highSteel" id="highSteel">
+                    <label class="custom-control-label" for="highSteel">High Steel</label>
+                </div>
+                <label for="circumference">Circumference (in cm)</label>
+                <input class="form-control" name="circumference" type="number">
+                <br>
+                <input type="submit" class="btn btn-primary" value="Calculate">
+        </div>
+    </form>
+    {{/if}}
+
+    {{#if cValue}}
+        <div class="alert alert-success">
+            <div class="font-weight-bold">C Value:</div> {{cValue}} <br>
+            <div class="font-weight-bold">Blocks of C4:</div> {{blksC4}} Blocks
+        </div>
+    {{/if}}
+</div>

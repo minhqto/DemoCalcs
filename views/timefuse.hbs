@@ -1,0 +1,53 @@
+<div>
+        <a href="/timefuse/single"><button type="button" class="btn btn-secondary singleShot {{#isActiveButton "/timefuse/single"}}{{/isActiveButton}} ">Single Shot</button></a>
+        <a href="/timefuse/multi"><button type="button" class="btn btn-secondary multiShot {{#isActiveButton "/timefuse/multi"}}{{/isActiveButton}}">Multiple Shot</button></a>
+        <br>
+        <br>
+
+         {{#if (equalsZero fl)}}
+            <div class="alert alert-danger">Walk Time is less than zero or burn time is less than 118 seconds/metre.</div>
+        {{/if}}
+
+        {{#if (shotType "/timefuse/single")}}
+            {{#if error}}
+                <div class="alert alert-warning">{{error}}</div>
+            {{/if}}
+            <form method="post" action="/timefuse/single">
+                <div class="form-group">
+                    <label for="walktime">Walk Time</label>
+                    <input name="walktime" type="number" id="walktime" class="form-control">
+                    <label>Burn Time</label>
+                    <input name="burntime" type="number" id="burntime" class="form-control">
+                    <br>
+                    <input type="submit" class="btn btn-primary singleShot" value="Calculate">
+                </div>     
+            </form>
+        {{/if}}
+
+        {{#if (shotType "/timefuse/multi")}}
+            {{#if error}}
+                <div class="alert alert-warning">{{error}}</div>
+            {{/if}}
+            <form method="post" action="/timefuse/multi">
+                <div class="form-group">
+                    <label for="walktime">Walk Time</label>
+                    <input name="walktime" type="number" id="walktime" class="form-control">
+                    <label>Burn Time</label>
+                    <input name="burntime" type="number" id="burntime" class="form-control">
+                    <br>
+                    <input type="submit" class="btn btn-primary multiShot" value="Calculate">
+                </div>
+            </form>
+        {{/if}}
+
+        {{#if fl}}
+           
+                <div class="font-weight-bold">Walk Time: </div>{{wt}} seconds
+                <div class="font-weight-bold">Burn Time:</div> {{bt}} metres/seconds<br><br>
+                <div class="alert alert-success">
+                    <div class="font-weight-bold">Fuse length:</div> {{fl}} metres<br>
+                    <div class="font-weight-bold">Total time: {{totalTime}} seconds</div>
+                </div>
+        {{/if}}
+         
+</div>

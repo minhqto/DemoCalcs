@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Demo Calcs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/en/5/5d/CME_Badge.jpg">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="/jQueryHelpers.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
+        <div class="container-fluid">
+            <div class="font-white">
+                <a class="navbar-brand" href="/">Deliberate Demolitions Calculator</a>
+            </div>
+            {{#unless session.user}}
+            <div class="navbar-nav">
+                <div class="float-right pr-2">
+                    <a href="/login" class="btn btn-success">Login</a>
+                </div>
+                <div class="float-right">
+                    <a href="/register" class="btn btn-primary">Register</a>
+                </div>
+            </div>
+            {{/unless}}
+            {{#if session.user}}
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="/logout" class="float-right btn btn-secondary">Logout</a>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </nav>
+
+    <div class="container pt-2">
+        <div class="row">
+            <h4 class="col-md-10">Author: Minh To</h4>
+        </div>
+    </div>
+    <div class="container">
+        <h4>Formulas: Canadian Forces School of Military Engineering</h4>
+    </div>
+    {{#if session.user}}
+    <div class="container">
+
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a href="/timefuse"
+                    class="nav-link {{#isActive "/timefuse"}}{{/isActive}}{{#isActive "/timefuse/single"}}{{/isActive}}{{#isActive "/timefuse/multi"}}{{/isActive}}">Time
+                    Fuse</a>
+            </li>
+            <li>
+                <a href="/steel"
+                    class="nav-link {{#isActive "/steel"}}{{/isActive}}{{#isActive "/steel/bar"}}{{/isActive}}{{#isActive "/steel/cable"}}{{/isActive}}">Steel,
+                    Round Bars and Cable</a>
+            </li>
+            <li>
+                <a href="/timber" class="nav-link {{#isActive "/timber"}}{{/isActive}}">Timber</a>
+            </li>
+            <li>
+                <a href="/concrete" class="nav-link {{#isActive "/concrete"}}{{/isActive}}">Concrete Stripping</a>
+            </li>
+            <li>
+                <a href="/boreholes" class="nav-link {{#isActive "/boreholes"}}{{/isActive}}">Boreholes</a>
+            </li>
+            <li>
+                <a href="/about" class="nav-link {{#isActive "/about"}}{{/isActive}}">About</a>
+            </li>
+    </div>
+
+    {{/if}}
+    <div id="page-content-wrapper">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="mainpage" class="container-fluid">
+
+        </div>
+    </div>
+    </div>
+    <div class="container border-bottom">
+        {{{body}}}
+        <br>
+    </div>
+
+
+</body>
+
+</html>
